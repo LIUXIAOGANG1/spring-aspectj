@@ -1,0 +1,34 @@
+{
+	"configuration":{
+		"appenders": {
+			"RandomAccessFile": {
+				"name": "FILE",
+				"fileName": "app.log",
+				"PatternLayout": {
+					"pattern": "%d{yyyy-MM-dd HH:mm:ss} [%p] [%t] %c.%M(%L) | %m%n" 
+				}
+			},
+			"Console": {
+				"name": "STDOUT",
+				"PatternLayout": {
+					"pattern": "%d{yyyy-MM-dd HH:mm:ss} [%p] [%t] %c.%M(%L) | %m%n" 
+				}
+			}
+		},
+
+		"loggers": {
+			"root": {
+				"level": "DEBUG",
+				"AppenderRef": [
+					{"ref": "STDOUT"},
+					{"ref": "FILE"}
+				]
+			},
+			"logger":[{
+				"name": "cn.gmw.skype.gsweb.filter", 
+				"level": "ERROR",
+				"appender-ref": [{"ref": "FILE"}]
+            }]
+		}
+	}
+}
